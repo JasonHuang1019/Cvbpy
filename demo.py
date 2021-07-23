@@ -9,6 +9,17 @@ for discover_cam in cvb.DeviceFactory.discover_from_root(cvb.DiscoverFlags.Ignor
     try:
         device = cvb.DeviceFactory.open(discover_cam.access_token)
         print(str({discover_cam})+" 已連接")
+        
+        device_node_map = device.node_maps["Device"]
+        exposure_node = device_node_map["ExposureTime"]
+        exposure_node.value = 50000 
+        # print(exposure_node.value)
+        
+        print("Vendor:  " + device_node_map["DeviceVendorName"].value)
+        print("Model:   " + device_node_map["DeviceModelName"].value)
+        print("Version: " + device_node_map["DeviceVersion"].value)
+        print("Exposure: " + str(exposure_node.value))
+        
     except :
         print(str({discover_cam})+" 無法連接")
 
