@@ -43,6 +43,6 @@ while status == cvb.WaitStatus.Ok:
                 cv2.imshow('image',resimg)
                 
                 if cv2.waitKey(1) & 0xFF == ord('q'):
-                    exit()
+                    #exit()
                     break
 stream.abort()
