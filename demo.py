@@ -27,11 +27,10 @@ for discover_cam in cvb.DeviceFactory.discover_from_root(cvb.DiscoverFlags.Ignor
 # device = cvb.DeviceFactory.open(cvb.DeviceFactory.discover_from_root(cvb.DiscoverFlags.IgnoreVins)[1].access_token)
 
 stream = device.stream
-
 stream.start()
-image, status = stream.wait()   
 
 while status == cvb.WaitStatus.Ok:
+                image, status = stream.wait() 
                 # image, status = wait_for_newest(device.stream)
                 # create numpy array from cvb image (without copying data)
                 matrix = cvb.as_array(image)   
