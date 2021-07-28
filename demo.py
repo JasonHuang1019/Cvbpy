@@ -32,7 +32,6 @@ stream.start()
 image, status = stream.wait()   
 
 while status == cvb.WaitStatus.Ok:
-                image, status = stream.wait()   
                 # image, status = wait_for_newest(device.stream)
                 # create numpy array from cvb image (without copying data)
                 matrix = cvb.as_array(image)   
