@@ -28,7 +28,7 @@ for discover_cam in cvb.DeviceFactory.discover_from_root(cvb.DiscoverFlags.Ignor
 
 stream = device.stream
 stream.start()
-
+image, status = stream.wait() 
 while status == cvb.WaitStatus.Ok:
                 image, status = stream.wait() 
                 # image, status = wait_for_newest(device.stream)
